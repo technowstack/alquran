@@ -8,10 +8,11 @@ import 'app/routes/app_pages.dart';
 void main() {
   runApp(
     GetMaterialApp(
-      theme: appLight,
+      theme: themeDark,
+      darkTheme: themeDark,
       debugShowCheckedModeBanner: false,
       title: "Application",
-      initialRoute: Routes.INTRODUCTION,
+      initialRoute: Routes.HOME,
       getPages: AppPages.routes,
     ),
   );
