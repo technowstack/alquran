@@ -10,21 +10,33 @@ Color appWhite = Color(0xffFAF8FC);
 Color appOrange = Color(0xffE6704A);
 
 ThemeData themeLight = ThemeData(
-    brightness: Brightness.light,
-    primaryColor: appPurple,
-    scaffoldBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(backgroundColor: appPurple, elevation: 0),
-    textTheme: TextTheme(
-      bodyText1: TextStyle(color: appPurpleDark),
-      bodyText2: TextStyle(color: appPurpleDark),
-    ));
+  brightness: Brightness.light,
+  floatingActionButtonTheme:
+      FloatingActionButtonThemeData(backgroundColor: appPurpleDark),
+  primaryColor: appPurple,
+  scaffoldBackgroundColor: Colors.white,
+  appBarTheme: AppBarTheme(backgroundColor: appPurple, elevation: 0),
+  textTheme: TextTheme(
+    bodyText1: TextStyle(color: appPurpleDark),
+    bodyText2: TextStyle(color: appPurpleDark),
+  ),
+  listTileTheme: ListTileThemeData(
+    textColor: appPurpleDark,
+  ),
+);
 
 ThemeData themeDark = ThemeData(
-    brightness: Brightness.dark,
-    primaryColor: appPurple,
-    scaffoldBackgroundColor: appPurpleDark,
-    appBarTheme: AppBarTheme(backgroundColor: appPurpleDark, elevation: 4),
-    textTheme: TextTheme(
-      bodyText1: TextStyle(color: appWhite),
-      bodyText2: TextStyle(color: appWhite),
-    ));
+  brightness: Brightness.dark,
+  primaryColor: appPurple,
+  floatingActionButtonTheme:
+      FloatingActionButtonThemeData(backgroundColor: appWhite),
+  scaffoldBackgroundColor: appPurpleDark,
+  appBarTheme: AppBarTheme(backgroundColor: appPurpleDark, elevation: 4),
+  textTheme: TextTheme(
+    bodyText1: TextStyle(color: appWhite),
+    bodyText2: TextStyle(color: appWhite),
+  ),
+  listTileTheme: ListTileThemeData(
+    textColor: appWhite,
+  ),
+);

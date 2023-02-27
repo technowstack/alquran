@@ -116,27 +116,30 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
               ),
-              TabBar(
-                labelColor: Get.isDarkMode ? appWhite : appPurpleDark,
-                unselectedLabelColor: Colors.grey,
-                tabs: [
-                  Tab(
-                    child: Text(
-                      'Surah',
+              Obx(
+                () => TabBar(
+                  labelColor:
+                      controller.isDark.isTrue ? appWhite : appPurpleDark,
+                  unselectedLabelColor: Colors.grey,
+                  tabs: [
+                    Tab(
+                      child: Text(
+                        'Surah',
+                      ),
                     ),
-                  ),
-                  Tab(
-                    child: Text(
-                      'Juz',
+                    Tab(
+                      child: Text(
+                        'Juz',
+                      ),
                     ),
-                  ),
-                  Tab(
-                    child: Text(
-                      'Bookmark',
+                    Tab(
+                      child: Text(
+                        'Bookmark',
+                      ),
                     ),
-                  ),
-                ],
-                indicatorColor: Get.isDarkMode ? appWhite : appPurpleDark,
+                  ],
+                  indicatorColor: Get.isDarkMode ? appWhite : appPurpleDark,
+                ),
               ),
               Expanded(
                 child: TabBarView(children: [
@@ -173,29 +176,18 @@ class HomeView extends GetView<HomeController> {
                                 child: Center(
                                   child: Text(
                                     "${surah.number}",
-                                    style: TextStyle(
-                                      color: Get.isDarkMode
-                                          ? appWhite
-                                          : appPurpleDark,
-                                    ),
                                   ),
                                 ),
                               ),
                               title: Text(
                                 "${surah.name!.transliteration!.id ?? 'Error...'}",
-                                style: TextStyle(
-                                  color:
-                                      Get.isDarkMode ? appWhite : appPurpleDark,
-                                ),
                               ),
                               subtitle: Text(
-                                  "${surah.numberOfVerses} Ayat | ${surah.revelation!.id}"),
+                                "${surah.numberOfVerses} Ayat | ${surah.revelation!.id}",
+                                style: TextStyle(color: Colors.grey[500]),
+                              ),
                               trailing: Text(
                                 "${surah.name!.short ?? 'Error...'}",
-                                style: TextStyle(
-                                  color:
-                                      Get.isDarkMode ? appWhite : appPurpleDark,
-                                ),
                               ),
                             );
                           });
@@ -238,6 +230,20 @@ class HomeView extends GetView<HomeController> {
                 ]),
               )
             ],
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.isDarkMode
+              ? Get.changeTheme(themeLight)
+              : Get.changeTheme(themeDark);
+          controller.isDark.toggle();
+        },
+        child: Obx(
+          () => Icon(
+            Icons.color_lens,
+            color: controller.isDark.isTrue ? appPurpleDark : appWhite,
           ),
         ),
       ),
